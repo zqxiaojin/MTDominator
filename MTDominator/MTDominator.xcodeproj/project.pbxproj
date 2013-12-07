@@ -1,0 +1,447 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3C2B8CFD1852749400034377 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C2B8CFC1852749400034377 /* Foundation.framework */; };
+		3C2B8D081852749400034377 /* MTDominatorHookApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3C2B8D071852749400034377 /* MTDominatorHookApp.mm */; };
+		3C2B8D131852E5C700034377 /* libsubstrate.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C2B8D121852E5C700034377 /* libsubstrate.dylib */; };
+		3C2B8D671852E90A00034377 /* MTDominatorController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C2B8D651852E90A00034377 /* MTDominatorController.h */; };
+		3C2B8D681852E90A00034377 /* MTDominatorController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3C2B8D661852E90A00034377 /* MTDominatorController.mm */; };
+		3C2B8D6B1852EA3900034377 /* HookObjC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C2B8D691852EA3900034377 /* HookObjC.cpp */; };
+		3C2B8D6C1852EA3900034377 /* HookObjC.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C2B8D6A1852EA3900034377 /* HookObjC.h */; };
+		3C2B8D6E1852EC2400034377 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C2B8D6D1852EC2400034377 /* UIKit.framework */; };
+		3C2B8D861852F75600034377 /* GraphicsServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C2B8D851852F75500034377 /* GraphicsServices.framework */; };
+		3C2B8D991852F7C400034377 /* ClickEventWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3C2B8D971852F7C400034377 /* ClickEventWrapper.mm */; };
+		3C2B8D9A1852F7C400034377 /* ClickEventWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C2B8D981852F7C400034377 /* ClickEventWrapper.h */; };
+		3C2B8D9D1852FD9300034377 /* ScreenImageHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C2B8D9B1852FD9300034377 /* ScreenImageHelper.h */; };
+		3C2B8D9E1852FD9300034377 /* ScreenImageHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3C2B8D9C1852FD9300034377 /* ScreenImageHelper.mm */; };
+		3C2B8DA01852FF0C00034377 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C2B8D9F1852FF0C00034377 /* CoreGraphics.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3C2B8CF91852749400034377 /* MTDominator.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = MTDominator.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C2B8CFC1852749400034377 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3C2B8D011852749400034377 /* control.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = control.txt; path = Package/DEBIAN/control.txt; sourceTree = "<group>"; };
+		3C2B8D021852749400034377 /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
+		3C2B8D041852749400034377 /* PackageVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PackageVersion.plist; sourceTree = "<group>"; };
+		3C2B8D051852749400034377 /* MTDominator-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MTDominator-Prefix.pch"; sourceTree = "<group>"; };
+		3C2B8D061852749400034377 /* MTDominatorHookApp.xm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MTDominatorHookApp.xm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		3C2B8D071852749400034377 /* MTDominatorHookApp.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MTDominatorHookApp.mm; sourceTree = "<group>"; };
+		3C2B8D0C1852749400034377 /* MTDominator.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = MTDominator.plist; path = Package/Library/MobileSubstrate/DynamicLibraries/MTDominator.plist; sourceTree = "<group>"; };
+		3C2B8D121852E5C700034377 /* libsubstrate.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsubstrate.dylib; path = ../../../../../opt/iOSOpenDev/lib/libsubstrate.dylib; sourceTree = "<group>"; };
+		3C2B8D651852E90A00034377 /* MTDominatorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTDominatorController.h; sourceTree = "<group>"; };
+		3C2B8D661852E90A00034377 /* MTDominatorController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MTDominatorController.mm; sourceTree = "<group>"; };
+		3C2B8D691852EA3900034377 /* HookObjC.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HookObjC.cpp; sourceTree = "<group>"; };
+		3C2B8D6A1852EA3900034377 /* HookObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HookObjC.h; sourceTree = "<group>"; };
+		3C2B8D6D1852EC2400034377 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		3C2B8D851852F75500034377 /* GraphicsServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GraphicsServices.framework; path = System/Library/PrivateFrameworks/GraphicsServices.framework; sourceTree = SDKROOT; };
+		3C2B8D891852F78500034377 /* GraphicsServices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GraphicsServices.h; sourceTree = "<group>"; };
+		3C2B8D8A1852F78500034377 /* GSBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GSBase.h; sourceTree = "<group>"; };
+		3C2B8D8B1852F78500034377 /* GSCapability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GSCapability.h; sourceTree = "<group>"; };
+		3C2B8D8C1852F78500034377 /* GSColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GSColor.h; sourceTree = "<group>"; };
+		3C2B8D8D1852F78500034377 /* GSEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GSEvent.h; sourceTree = "<group>"; };
+		3C2B8D8E1852F78500034377 /* GSFont.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GSFont.h; sourceTree = "<group>"; };
+		3C2B8D8F1852F78500034377 /* GSGeometry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GSGeometry.h; sourceTree = "<group>"; };
+		3C2B8D901852F78500034377 /* GSHeartbeat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GSHeartbeat.h; sourceTree = "<group>"; };
+		3C2B8D911852F78500034377 /* GSHiccup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GSHiccup.h; sourceTree = "<group>"; };
+		3C2B8D921852F78500034377 /* GSKeyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GSKeyboard.h; sourceTree = "<group>"; };
+		3C2B8D931852F78500034377 /* GSMainScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GSMainScreen.h; sourceTree = "<group>"; };
+		3C2B8D941852F78500034377 /* GSMaps.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GSMaps.h; sourceTree = "<group>"; };
+		3C2B8D951852F78500034377 /* GSStatusBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GSStatusBar.h; sourceTree = "<group>"; };
+		3C2B8D961852F78500034377 /* GSWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GSWindow.h; sourceTree = "<group>"; };
+		3C2B8D971852F7C400034377 /* ClickEventWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ClickEventWrapper.mm; sourceTree = "<group>"; };
+		3C2B8D981852F7C400034377 /* ClickEventWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClickEventWrapper.h; sourceTree = "<group>"; };
+		3C2B8D9B1852FD9300034377 /* ScreenImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenImageHelper.h; sourceTree = "<group>"; };
+		3C2B8D9C1852FD9300034377 /* ScreenImageHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ScreenImageHelper.mm; sourceTree = "<group>"; };
+		3C2B8D9F1852FF0C00034377 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3C2B8CF51852749400034377 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3C2B8DA01852FF0C00034377 /* CoreGraphics.framework in Frameworks */,
+				3C2B8D6E1852EC2400034377 /* UIKit.framework in Frameworks */,
+				3C2B8CFD1852749400034377 /* Foundation.framework in Frameworks */,
+				3C2B8D131852E5C700034377 /* libsubstrate.dylib in Frameworks */,
+				3C2B8D861852F75600034377 /* GraphicsServices.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3C2B8CEE1852749400034377 = {
+			isa = PBXGroup;
+			children = (
+				3C2B8CFE1852749400034377 /* MTDominator */,
+				3C2B8CFB1852749400034377 /* Frameworks */,
+				3C2B8CFA1852749400034377 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3C2B8CFA1852749400034377 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3C2B8CF91852749400034377 /* MTDominator.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3C2B8CFB1852749400034377 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3C2B8D9F1852FF0C00034377 /* CoreGraphics.framework */,
+				3C2B8D851852F75500034377 /* GraphicsServices.framework */,
+				3C2B8D6D1852EC2400034377 /* UIKit.framework */,
+				3C2B8D121852E5C700034377 /* libsubstrate.dylib */,
+				3C2B8CFC1852749400034377 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3C2B8CFE1852749400034377 /* MTDominator */ = {
+			isa = PBXGroup;
+			children = (
+				3C2B8D881852F78500034377 /* GraphicsServices */,
+				3C2B8D061852749400034377 /* MTDominatorHookApp.xm */,
+				3C2B8D071852749400034377 /* MTDominatorHookApp.mm */,
+				3C2B8CFF1852749400034377 /* Package */,
+				3C2B8D031852749400034377 /* Supporting Files */,
+				3C2B8D651852E90A00034377 /* MTDominatorController.h */,
+				3C2B8D661852E90A00034377 /* MTDominatorController.mm */,
+				3C2B8D6A1852EA3900034377 /* HookObjC.h */,
+				3C2B8D691852EA3900034377 /* HookObjC.cpp */,
+				3C2B8D981852F7C400034377 /* ClickEventWrapper.h */,
+				3C2B8D971852F7C400034377 /* ClickEventWrapper.mm */,
+				3C2B8D9B1852FD9300034377 /* ScreenImageHelper.h */,
+				3C2B8D9C1852FD9300034377 /* ScreenImageHelper.mm */,
+			);
+			path = MTDominator;
+			sourceTree = "<group>";
+		};
+		3C2B8CFF1852749400034377 /* Package */ = {
+			isa = PBXGroup;
+			children = (
+				3C2B8D001852749400034377 /* DEBIAN */,
+				3C2B8D091852749400034377 /* Library */,
+			);
+			name = Package;
+			sourceTree = "<group>";
+		};
+		3C2B8D001852749400034377 /* DEBIAN */ = {
+			isa = PBXGroup;
+			children = (
+				3C2B8D011852749400034377 /* control.txt */,
+				3C2B8D021852749400034377 /* control */,
+			);
+			name = DEBIAN;
+			sourceTree = "<group>";
+		};
+		3C2B8D031852749400034377 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3C2B8D041852749400034377 /* PackageVersion.plist */,
+				3C2B8D051852749400034377 /* MTDominator-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3C2B8D091852749400034377 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				3C2B8D0A1852749400034377 /* MobileSubstrate */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		3C2B8D0A1852749400034377 /* MobileSubstrate */ = {
+			isa = PBXGroup;
+			children = (
+				3C2B8D0B1852749400034377 /* DynamicLibraries */,
+			);
+			name = MobileSubstrate;
+			sourceTree = "<group>";
+		};
+		3C2B8D0B1852749400034377 /* DynamicLibraries */ = {
+			isa = PBXGroup;
+			children = (
+				3C2B8D0C1852749400034377 /* MTDominator.plist */,
+			);
+			name = DynamicLibraries;
+			sourceTree = "<group>";
+		};
+		3C2B8D881852F78500034377 /* GraphicsServices */ = {
+			isa = PBXGroup;
+			children = (
+				3C2B8D891852F78500034377 /* GraphicsServices.h */,
+				3C2B8D8A1852F78500034377 /* GSBase.h */,
+				3C2B8D8B1852F78500034377 /* GSCapability.h */,
+				3C2B8D8C1852F78500034377 /* GSColor.h */,
+				3C2B8D8D1852F78500034377 /* GSEvent.h */,
+				3C2B8D8E1852F78500034377 /* GSFont.h */,
+				3C2B8D8F1852F78500034377 /* GSGeometry.h */,
+				3C2B8D901852F78500034377 /* GSHeartbeat.h */,
+				3C2B8D911852F78500034377 /* GSHiccup.h */,
+				3C2B8D921852F78500034377 /* GSKeyboard.h */,
+				3C2B8D931852F78500034377 /* GSMainScreen.h */,
+				3C2B8D941852F78500034377 /* GSMaps.h */,
+				3C2B8D951852F78500034377 /* GSStatusBar.h */,
+				3C2B8D961852F78500034377 /* GSWindow.h */,
+			);
+			path = GraphicsServices;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		3C2B8CF61852749400034377 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3C2B8D9D1852FD9300034377 /* ScreenImageHelper.h in Headers */,
+				3C2B8D9A1852F7C400034377 /* ClickEventWrapper.h in Headers */,
+				3C2B8D671852E90A00034377 /* MTDominatorController.h in Headers */,
+				3C2B8D6C1852EA3900034377 /* HookObjC.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		3C2B8CF81852749400034377 /* MTDominator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3C2B8D0F1852749400034377 /* Build configuration list for PBXNativeTarget "MTDominator" */;
+			buildPhases = (
+				3C2B8CF31852749400034377 /* ShellScript */,
+				3C2B8CF41852749400034377 /* Sources */,
+				3C2B8CF51852749400034377 /* Frameworks */,
+				3C2B8CF61852749400034377 /* Headers */,
+				3C2B8CF71852749400034377 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MTDominator;
+			productName = MTDominator;
+			productReference = 3C2B8CF91852749400034377 /* MTDominator.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3C2B8CEF1852749400034377 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+			};
+			buildConfigurationList = 3C2B8CF21852749400034377 /* Build configuration list for PBXProject "MTDominator" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 3C2B8CEE1852749400034377;
+			productRefGroup = 3C2B8CFA1852749400034377 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3C2B8CF81852749400034377 /* MTDominator */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3C2B8CF31852749400034377 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp-logos";
+		};
+		3C2B8CF71852749400034377 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3C2B8CF41852749400034377 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3C2B8D681852E90A00034377 /* MTDominatorController.mm in Sources */,
+				3C2B8D9E1852FD9300034377 /* ScreenImageHelper.mm in Sources */,
+				3C2B8D6B1852EA3900034377 /* HookObjC.cpp in Sources */,
+				3C2B8D081852749400034377 /* MTDominatorHookApp.mm in Sources */,
+				3C2B8D991852F7C400034377 /* ClickEventWrapper.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		3C2B8D0D1852749400034377 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_ENABLE_MODULES = YES;
+				COPY_PHASE_STRIP = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/frameworks/**",
+					"$(SDKROOT)/System/Library/PrivateFrameworks",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Debug;
+		};
+		3C2B8D0E1852749400034377 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_ENABLE_MODULES = YES;
+				COPY_PHASE_STRIP = YES;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/frameworks/**",
+					"$(SDKROOT)/System/Library/PrivateFrameworks",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Release;
+		};
+		3C2B8D101852749400034377 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MTDominator/MTDominator-Prefix.pch";
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/iOSOpenDev/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = armv7;
+				iOSOpenDevBuildPackageOnAnyBuild = NO;
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = localhost;
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevRespringOnInstall = YES;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Debug;
+		};
+		3C2B8D111852749400034377 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MTDominator/MTDominator-Prefix.pch";
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/iOSOpenDev/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = armv7;
+				iOSOpenDevBuildPackageOnAnyBuild = NO;
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = localhost;
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevRespringOnInstall = YES;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3C2B8CF21852749400034377 /* Build configuration list for PBXProject "MTDominator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C2B8D0D1852749400034377 /* Debug */,
+				3C2B8D0E1852749400034377 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3C2B8D0F1852749400034377 /* Build configuration list for PBXNativeTarget "MTDominator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C2B8D101852749400034377 /* Debug */,
+				3C2B8D111852749400034377 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3C2B8CEF1852749400034377 /* Project object */;
+}

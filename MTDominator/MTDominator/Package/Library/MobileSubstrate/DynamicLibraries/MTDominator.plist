@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Filter</key>
+	<dict>
+		<key>Bundles</key>
+		<array>
+			<string>UCMobile.WebkitDemo</string>
+            
+            <string>com.locojoy.ifunbox.immt-a-chs</string>
+			<string>com.locojoy.immt-a-chs</string>
+			<string>com.locojoy.immt-a-cht</string>
+			<string>com.locojoy.91.immt-a-chs</string>
+			<string>com.locojoy.pp.immt-a-chs</string>
+			<string>com.locojoy.pgy.immt-a-chs</string>
+			<string>com.locojoy.tbt.immt-a-chs</string>
+			<string>com.vqw.mt</string>
+			<string>com.locojoy.locojoy.immt-a-chs</string>
+            
+		</array>
+	</dict>
+</dict>
+</plist>
