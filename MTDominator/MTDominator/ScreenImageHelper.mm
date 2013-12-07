@@ -37,7 +37,7 @@ extern "C" UIImage * _UICreateScreenUIImage();
 
 - (void)updateImage
 {
-    self.currentImage = _UICreateScreenUIImage();
+    self.currentImage = [_UICreateScreenUIImage() autorelease];
     
 //    NSLog(@"image size :%f,%f" , self.currentImage.size.width , self.currentImage.size.height);
 }
