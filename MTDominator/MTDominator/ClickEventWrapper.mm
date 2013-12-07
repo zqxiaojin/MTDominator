@@ -111,7 +111,7 @@ void sendclickevent(CGPoint point ,UITouchPhase phase)
     event->handInfo.pathInfos[0].pathLocation  = point;
     
     
-    mach_port_t port = getFrontMostAppPort();
+    static mach_port_t port = getFrontMostAppPort();
     GSEventRecord* record = (GSEventRecord*)event;
     GSSendEvent(record, port);
 }
