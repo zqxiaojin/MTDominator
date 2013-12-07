@@ -17,12 +17,12 @@ enum State
     EIdle
     ,ERuning
 };
-static CGPoint checkPoint = CGPointMake(504.f, 900.f);
 
 @interface MTDominatorController ()
 {
     State       m_state;
     UIButton*   m_clickButton;
+    CGPoint     m_checkPoint;
 }
 @property (nonatomic,retain)ScreenImageHelper* screemImageHelper;
 
@@ -43,8 +43,20 @@ static CGPoint checkPoint = CGPointMake(504.f, 900.f);
 - (id)init
 {
     self = [super init];
-    if (self) {
+    if (self)
+    {
         m_screemImageHelper = [ScreenImageHelper new];
+        
+        CGRect screen = [[UIScreen mainScreen] bounds];
+        
+        if (screen.size.height > 480)
+        {
+            m_checkPoint = CGPointMake(517.f,1051.f);//iPhone 5
+        }
+        else
+        {
+            m_checkPoint = CGPointMake(504.f, 900.f);//iPhone 4
+        }
     }
     return self;
 }
@@ -115,7 +127,7 @@ static CGPoint checkPoint = CGPointMake(504.f, 900.f);
 
 - (void)buttonClickTest:(UIButton*)sender
 {
-    sendclickevent(checkPoint, UITouchPhaseBegan);
+    sendclickevent(m_checkPoint, UITouchPhaseBegan);
     [self.scriptDelayTimer invalidate];
     self.scriptDelayTimer = [NSTimer scheduledTimerWithTimeInterval:1
                                                              target:self
@@ -126,7 +138,7 @@ static CGPoint checkPoint = CGPointMake(504.f, 900.f);
 
 - (void)touchUpTest
 {
-    sendclickevent(checkPoint, UITouchPhaseEnded);
+    sendclickevent(m_checkPoint, UITouchPhaseEnded);
     
     [self.scriptDelayTimer invalidate];
 }
@@ -179,7 +191,7 @@ static CGPoint checkPoint = CGPointMake(504.f, 900.f);
     
     [self.screemImageHelper updateImage];
     
-    UIColor* checkPointColor = [self.screemImageHelper getColorAtPoint:checkPoint];
+    UIColor* checkPointColor = [self.screemImageHelper getColorAtPoint:m_checkPoint];
     
     UIColor* expectColor = [UIColor colorWithRed:0.0f green:1.0f blue:1.0f alpha:1.0f];
     
@@ -194,7 +206,7 @@ static CGPoint checkPoint = CGPointMake(504.f, 900.f);
     
     if (isMatch)
     {
-        sendclickevent(checkPoint, UITouchPhaseBegan);
+        sendclickevent(m_checkPoint, UITouchPhaseBegan);
         [self.scriptDelayTimer invalidate];
         self.scriptDelayTimer = [NSTimer scheduledTimerWithTimeInterval:0.5
                                                                  target:self
@@ -215,7 +227,7 @@ static CGPoint checkPoint = CGPointMake(504.f, 900.f);
 
 - (void)touchUp
 {
-    sendclickevent(checkPoint, UITouchPhaseEnded);
+    sendclickevent(m_checkPoint, UITouchPhaseEnded);
     
     [self.scriptDelayTimer invalidate];
     self.scriptDelayTimer = [NSTimer scheduledTimerWithTimeInterval:3.0
