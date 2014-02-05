@@ -63,7 +63,11 @@ static mach_port_t getFrontMostAppPort()
 //    else
 //        return GSCopyPurpleNamedPort(appId);
     
-    return GSCopyPurpleNamedPort([[[NSBundle mainBundle] bundleIdentifier] UTF8String]);
+    NSString* bundle = [[NSBundle mainBundle] bundleIdentifier];
+//    NSLog(@"bundle ----- %@", bundle);
+    mach_port_t result = GSCopyPurpleNamedPort([bundle UTF8String]);
+//    NSLog(@"--------%d", (int)result);
+    return result;
 }
 
 void sendclickevent(CGPoint point ,UITouchPhase phase)
@@ -112,6 +116,7 @@ void sendclickevent(CGPoint point ,UITouchPhase phase)
     
     
     static mach_port_t port = getFrontMostAppPort();
+    
     GSEventRecord* record = (GSEventRecord*)event;
     GSSendEvent(record, port);
 }

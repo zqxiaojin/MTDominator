@@ -12,6 +12,10 @@
 #import "ScreenImageHelper.h"
 #import "ClickEventWrapper.h"
 
+#import <sys/utsname.h>
+
+NSString* machineName();
+
 enum State
 {
     EIdle
@@ -46,10 +50,14 @@ enum State
     if (self)
     {
         m_screemImageHelper = [ScreenImageHelper new];
-        
-        CGRect screen = [[UIScreen mainScreen] bounds];
-        
-        if (screen.size.height > 480)
+
+        NSString* name = machineName();
+//        NSLog(@"MTDominator enable on %@", name);
+        if ([name hasPrefix:@"iPad4"])///iPad
+        {
+            m_checkPoint = CGPointMake(1160/2, 1930/2);
+        }
+        else if ([name hasPrefix:@"iPhone5"])
         {
             m_checkPoint = CGPointMake(517.f,1051.f);//iPhone 5
         }
@@ -57,6 +65,10 @@ enum State
         {
             m_checkPoint = CGPointMake(504.f, 900.f);//iPhone 4
         }
+        
+        NSLog(@"MTDominator enable on %@  pos :%f,%f", name, m_checkPoint.x, m_checkPoint.y);
+
+        
     }
     return self;
 }
@@ -92,6 +104,9 @@ enum State
     [clickButton addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
     [topWindow addSubview:clickButton];
     [clickButton setFrame:CGRectMake(0, 0, 40, 50)];
+    
+    
+    [clickButton addTarget:self action:@selector(buttonOutsideClick:) forControlEvents:UIControlEventTouchUpOutside];
     
     m_clickButton = [clickButton retain];
     
@@ -143,7 +158,10 @@ enum State
     [self.scriptDelayTimer invalidate];
 }
 
-
+- (void)buttonOutsideClick:(UIButton*)sender
+{
+    [self.screemImageHelper saveImage];
+}
 
 - (void)buttonClick:(UIButton*)sender
 {
@@ -191,17 +209,25 @@ enum State
     
     [self.screemImageHelper updateImage];
     
-    UIColor* checkPointColor = [self.screemImageHelper getColorAtPoint:m_checkPoint];
+    ColorStruct expectColor = {0,255,255};
+    ColorStruct checkPointColor;
+    [self.screemImageHelper getColorAtPoint:m_checkPoint withOutColor:checkPointColor];
+//    UIColor* checkPointColor = [self.screemImageHelper getColorAtPoint:m_checkPoint];
     
-    UIColor* expectColor = [UIColor colorWithRed:0.0f green:1.0f blue:1.0f alpha:1.0f];
-    
+//    UIColor* expectColor = [UIColor colorWithRed:0.0f green:1.0f blue:1.0f alpha:1.0f];
+//    0.0745098 0.862745 0.886275 1
+//    0.0745098 0.862745 0.886275
     bool isMatch = false;
-    if ([checkPointColor isEqual:expectColor])
+    if (expectColor.r == checkPointColor.r
+        && expectColor.g == checkPointColor.g
+        && expectColor.b == checkPointColor.b)
     {
         isMatch = true;
     }
     
     [self.screemImageHelper freeImage];
+    
+//    NSLog(@"color %d,%d,%d %d", checkPointColor.r, checkPointColor.g, checkPointColor.b, isMatch);
     
     
     if (isMatch)
@@ -241,3 +267,14 @@ enum State
 
 
 @end
+
+
+NSString* machineName()
+{
+    struct utsname systemInfo;
+    uname(&systemInfo);
+    
+    return [NSString stringWithCString:systemInfo.machine
+                              encoding:NSUTF8StringEncoding];
+}
+

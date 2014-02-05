@@ -46,7 +46,7 @@ extern "C" UIImage * _UICreateScreenUIImage();
     self.currentImage = nil;
 }
 
-- (UIColor *)getColorAtPoint:(CGPoint)point
+- (void)getColorAtPoint:(CGPoint)point withOutColor:(ColorStruct&)colorStruct
 {
     CFDataRef pixelData = CGDataProviderCopyData(CGImageGetDataProvider(self.currentImage.CGImage));
     const UInt8* data = CFDataGetBytePtr(pixelData);
@@ -58,12 +58,15 @@ extern "C" UIImage * _UICreateScreenUIImage();
     UInt8 red = data[pixelInfo];         // If you need this info, enable it
     UInt8 green = data[(pixelInfo + 1)]; // If you need this info, enable it
     UInt8 blue = data[pixelInfo + 2];    // If you need this info, enable it
-    UInt8 alpha = data[pixelInfo + 3];     // I need only this info for my maze game
+//    UInt8 alpha = data[pixelInfo + 3];     // I need only this info for my maze game
     CFRelease(pixelData);
-    
-    UIColor* color = [UIColor colorWithRed:red/255.0f green:green/255.0f blue:blue/255.0f alpha:alpha/255.0f]; // The pixel color info
-    
-    return color;
+
+    colorStruct.r = red;
+    colorStruct.g = green;
+    colorStruct.b = blue;
+//    UIColor* color = [UIColor colorWithRed:red/255.0f green:green/255.0f blue:blue/255.0f alpha:alpha/255.0f]; // The pixel color info
+//    
+//    return color;
 
 }
 

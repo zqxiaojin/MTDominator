@@ -9,13 +9,19 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+struct ColorStruct
+{
+    unsigned r,g,b;
+    
+};
+
 @interface ScreenImageHelper : NSObject
 
 - (void)saveImage;
 
 - (void)updateImage;
 
-- (UIColor*)getColorAtPoint:(CGPoint)point;
+- (void)getColorAtPoint:(CGPoint)point withOutColor:(ColorStruct&)colorStruct;
 
 - (void)freeImage;
 
