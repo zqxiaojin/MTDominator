@@ -53,17 +53,18 @@ enum State
 
         NSString* name = machineName();
 //        NSLog(@"MTDominator enable on %@", name);
-        if ([name hasPrefix:@"iPad4"])///iPad
-        {
-            m_checkPoint = CGPointMake(1160/2, 1930/2);
-        }
-        else if ([name hasPrefix:@"iPhone5"])
+//        if ([name hasPrefix:@"iPad4"])///iPad
+//        {
+//            m_checkPoint = CGPointMake(1160/2, 1930/2);
+//        }
+//        else
+            if ([name hasPrefix:@"iPhone5"])
         {
             m_checkPoint = CGPointMake(517.f,1051.f);//iPhone 5
         }
         else
         {
-            m_checkPoint = CGPointMake(504.f, 900.f);//iPhone 4
+            m_checkPoint = CGPointMake(504.f, 900.f);//iPhone 4,iPad
         }
         
         NSLog(@"MTDominator enable on %@  pos :%f,%f", name, m_checkPoint.x, m_checkPoint.y);
