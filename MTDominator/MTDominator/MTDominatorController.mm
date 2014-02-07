@@ -207,31 +207,69 @@ enum State
     {
         return;
     }
-    
-    [self.screemImageHelper updateImage];
-    
-    ColorStruct expectColor = {0,255,255};
-    ColorStruct checkPointColor;
-    [self.screemImageHelper getColorAtPoint:m_checkPoint withOutColor:checkPointColor];
-//    UIColor* checkPointColor = [self.screemImageHelper getColorAtPoint:m_checkPoint];
-    
-//    UIColor* expectColor = [UIColor colorWithRed:0.0f green:1.0f blue:1.0f alpha:1.0f];
-//    0.0745098 0.862745 0.886275 1
-//    0.0745098 0.862745 0.886275
-    bool isMatch = false;
-    if (expectColor.r == checkPointColor.r
-        && expectColor.g == checkPointColor.g
-        && expectColor.b == checkPointColor.b)
-    {
-        isMatch = true;
+    @try {
+        [self.screemImageHelper updateImage];
     }
+    @catch (NSException *exception) {
+        return;
+    }
+    @finally {
+        
+    }
+    
+    
+    bool isMatch = false;
+    {
+        ColorStruct expectColor = {0,255,255};
+        ColorStruct checkPointColor;
+        [self.screemImageHelper getColorAtPoint:m_checkPoint withOutColor:checkPointColor];
+        //    UIColor* checkPointColor = [self.screemImageHelper getColorAtPoint:m_checkPoint];
+        
+        //    UIColor* expectColor = [UIColor colorWithRed:0.0f green:1.0f blue:1.0f alpha:1.0f];
+        //    0.0745098 0.862745 0.886275 1
+        //    0.0745098 0.862745 0.886275
+        
+        if (expectColor.r == checkPointColor.r
+            && expectColor.g == checkPointColor.g
+            && expectColor.b == checkPointColor.b)
+        {
+            isMatch = true;
+        }
+    }
+    
+    bool isMatchNetworkButton = false;
+    CGPoint networkButtonPoint = CGPointMake(332, 502);
+    {
+        ColorStruct expectColor = {255,255,255};
+        ColorStruct checkPointColor;
+        [self.screemImageHelper getColorAtPoint:networkButtonPoint withOutColor:checkPointColor];
+        
+        if (expectColor.r == checkPointColor.r
+            && expectColor.g == checkPointColor.g
+            && expectColor.b == checkPointColor.b)
+        {
+//            [self.screemImageHelper getColorAtPoint:CGPointMake(790/2,1072/2) withOutColor:checkPointColor];
+//            
+//            if (expectColor.r == checkPointColor.r
+//                && expectColor.g == checkPointColor.g
+//                && expectColor.b == checkPointColor.b)
+            {
+                isMatchNetworkButton = true;
+            }
+        }
+    }
+    
+    
     
     [self.screemImageHelper freeImage];
     
 //    NSLog(@"color %d,%d,%d %d", checkPointColor.r, checkPointColor.g, checkPointColor.b, isMatch);
-    
-    
-    if (isMatch)
+    if (isMatchNetworkButton)
+    {
+        sendclickevent(networkButtonPoint, UITouchPhaseBegan);
+    }
+    else
+        if (isMatch)
     {
         sendclickevent(m_checkPoint, UITouchPhaseBegan);
         [self.scriptDelayTimer invalidate];

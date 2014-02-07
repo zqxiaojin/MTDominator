@@ -14,13 +14,14 @@ extern "C" UIImage * _UICreateScreenUIImage();
 
 
 @interface ScreenImageHelper ()
-
+@property (nonatomic,assign)CFDataRef imageData;
 @property (nonatomic,retain)UIImage* currentImage;
 
 @end
 
 @implementation ScreenImageHelper
 @synthesize currentImage = m_currentImage;
+@synthesize imageData = m_imageData;
 
 - (void)saveImage
 {
@@ -43,13 +44,20 @@ extern "C" UIImage * _UICreateScreenUIImage();
 }
 - (void)freeImage;
 {
+    CFRelease(m_imageData);
+    m_imageData = NULL;
     self.currentImage = nil;
 }
 
 - (void)getColorAtPoint:(CGPoint)point withOutColor:(ColorStruct&)colorStruct
 {
-    CFDataRef pixelData = CGDataProviderCopyData(CGImageGetDataProvider(self.currentImage.CGImage));
-    const UInt8* data = CFDataGetBytePtr(pixelData);
+    CFDataRef pixelData = NULL;
+    if (m_imageData == NULL)
+    {
+        m_imageData = CGDataProviderCopyData(CGImageGetDataProvider(self.currentImage.CGImage));
+    }
+    pixelData = m_imageData;
+    const UInt8 * data = CFDataGetBytePtr(pixelData);
     CGSize imageSize = self.currentImage.size;
     imageSize.width *= self.currentImage.scale;
     imageSize.height *= self.currentImage.scale;
@@ -59,7 +67,7 @@ extern "C" UIImage * _UICreateScreenUIImage();
     UInt8 green = data[(pixelInfo + 1)]; // If you need this info, enable it
     UInt8 blue = data[pixelInfo + 2];    // If you need this info, enable it
 //    UInt8 alpha = data[pixelInfo + 3];     // I need only this info for my maze game
-    CFRelease(pixelData);
+    
 
     colorStruct.r = red;
     colorStruct.g = green;

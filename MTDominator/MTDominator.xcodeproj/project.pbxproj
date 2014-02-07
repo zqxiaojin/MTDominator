@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3C2B8CFD1852749400034377 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C2B8CFC1852749400034377 /* Foundation.framework */; };
 		3C2B8D081852749400034377 /* MTDominatorHookApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3C2B8D071852749400034377 /* MTDominatorHookApp.mm */; };
-		3C2B8D131852E5C700034377 /* libsubstrate.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C2B8D121852E5C700034377 /* libsubstrate.dylib */; };
 		3C2B8D671852E90A00034377 /* MTDominatorController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C2B8D651852E90A00034377 /* MTDominatorController.h */; };
 		3C2B8D681852E90A00034377 /* MTDominatorController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3C2B8D661852E90A00034377 /* MTDominatorController.mm */; };
 		3C2B8D6B1852EA3900034377 /* HookObjC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C2B8D691852EA3900034377 /* HookObjC.cpp */; };
@@ -21,6 +20,7 @@
 		3C2B8D9D1852FD9300034377 /* ScreenImageHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C2B8D9B1852FD9300034377 /* ScreenImageHelper.h */; };
 		3C2B8D9E1852FD9300034377 /* ScreenImageHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3C2B8D9C1852FD9300034377 /* ScreenImageHelper.mm */; };
 		3C2B8DA01852FF0C00034377 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C2B8D9F1852FF0C00034377 /* CoreGraphics.framework */; };
+		3C3EB12318A5482000561C89 /* libsubstrate.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C3EB12218A5481400561C89 /* libsubstrate.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +33,6 @@
 		3C2B8D061852749400034377 /* MTDominatorHookApp.xm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MTDominatorHookApp.xm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		3C2B8D071852749400034377 /* MTDominatorHookApp.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MTDominatorHookApp.mm; sourceTree = "<group>"; };
 		3C2B8D0C1852749400034377 /* MTDominator.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = MTDominator.plist; path = Package/Library/MobileSubstrate/DynamicLibraries/MTDominator.plist; sourceTree = "<group>"; };
-		3C2B8D121852E5C700034377 /* libsubstrate.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsubstrate.dylib; path = ../../../../../opt/iOSOpenDev/lib/libsubstrate.dylib; sourceTree = "<group>"; };
 		3C2B8D651852E90A00034377 /* MTDominatorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTDominatorController.h; sourceTree = "<group>"; };
 		3C2B8D661852E90A00034377 /* MTDominatorController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MTDominatorController.mm; sourceTree = "<group>"; };
 		3C2B8D691852EA3900034377 /* HookObjC.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HookObjC.cpp; sourceTree = "<group>"; };
@@ -59,6 +58,7 @@
 		3C2B8D9B1852FD9300034377 /* ScreenImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenImageHelper.h; sourceTree = "<group>"; };
 		3C2B8D9C1852FD9300034377 /* ScreenImageHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ScreenImageHelper.mm; sourceTree = "<group>"; };
 		3C2B8D9F1852FF0C00034377 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		3C3EB12218A5481400561C89 /* libsubstrate.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsubstrate.dylib; path = /Users/jin/Desktop/opensource/MTDominator/MTDominator/../../../../../../opt/iOSOpenDev/lib/libsubstrate.dylib; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,10 +66,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C3EB12318A5482000561C89 /* libsubstrate.dylib in Frameworks */,
 				3C2B8DA01852FF0C00034377 /* CoreGraphics.framework in Frameworks */,
 				3C2B8D6E1852EC2400034377 /* UIKit.framework in Frameworks */,
 				3C2B8CFD1852749400034377 /* Foundation.framework in Frameworks */,
-				3C2B8D131852E5C700034377 /* libsubstrate.dylib in Frameworks */,
 				3C2B8D861852F75600034377 /* GraphicsServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -97,10 +97,10 @@
 		3C2B8CFB1852749400034377 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3C3EB12218A5481400561C89 /* libsubstrate.dylib */,
 				3C2B8D9F1852FF0C00034377 /* CoreGraphics.framework */,
 				3C2B8D851852F75500034377 /* GraphicsServices.framework */,
 				3C2B8D6D1852EC2400034377 /* UIKit.framework */,
-				3C2B8D121852E5C700034377 /* libsubstrate.dylib */,
 				3C2B8CFC1852749400034377 /* Foundation.framework */,
 			);
 			name = Frameworks;
@@ -379,6 +379,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/opt/iOSOpenDev/lib,
+					/Users/jin/Desktop/opensource/MTDominator/MTDominator/../../../../../../opt/iOSOpenDev/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALID_ARCHS = armv7;
@@ -408,6 +409,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/opt/iOSOpenDev/lib,
+					/Users/jin/Desktop/opensource/MTDominator/MTDominator/../../../../../../opt/iOSOpenDev/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALID_ARCHS = armv7;
