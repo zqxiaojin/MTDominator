@@ -27,10 +27,16 @@ enum State
     State       m_state;
     UIButton*   m_clickButton;
     CGPoint     m_checkPoint;
+    
+    CGPoint     m_currentPoint;
+    
+    bool        m_isIPhone5;
 }
 @property (nonatomic,retain)ScreenImageHelper* screemImageHelper;
 
 @property (nonatomic,retain)NSTimer* scriptDelayTimer;
+
+
 
 @end
 
@@ -61,10 +67,12 @@ enum State
             if ([name hasPrefix:@"iPhone5"])
         {
             m_checkPoint = CGPointMake(517.f,1051.f);//iPhone 5
+            m_isIPhone5 = true;
         }
         else
         {
             m_checkPoint = CGPointMake(504.f, 900.f);//iPhone 4,iPad
+            m_isIPhone5 = false;
         }
         
         NSLog(@"MTDominator enable on %@  pos :%f,%f", name, m_checkPoint.x, m_checkPoint.y);
@@ -239,10 +247,15 @@ enum State
     
     bool isMatchNetworkButton = false;
     CGPoint networkButtonPoint = CGPointMake(332, 502);
+    if (isMatch
+        && !m_isIPhone5)//<iPhone 5不知道位置
     {
         ColorStruct expectColor = {255,255,255};
         ColorStruct checkPointColor;
         [self.screemImageHelper getColorAtPoint:networkButtonPoint withOutColor:checkPointColor];
+        
+        
+//        NSLog(@"color %d,%d,%d", checkPointColor.r, checkPointColor.g, checkPointColor.b);
         
         if (expectColor.r == checkPointColor.r
             && expectColor.g == checkPointColor.g
@@ -264,20 +277,15 @@ enum State
     [self.screemImageHelper freeImage];
     
 //    NSLog(@"color %d,%d,%d %d", checkPointColor.r, checkPointColor.g, checkPointColor.b, isMatch);
+
     if (isMatchNetworkButton)
     {
-        sendclickevent(networkButtonPoint, UITouchPhaseBegan);
+        [self touchAtPoint:networkButtonPoint];
     }
     else
         if (isMatch)
     {
-        sendclickevent(m_checkPoint, UITouchPhaseBegan);
-        [self.scriptDelayTimer invalidate];
-        self.scriptDelayTimer = [NSTimer scheduledTimerWithTimeInterval:0.5
-                                                                 target:self
-                                                               selector:@selector(touchUp)
-                                                               userInfo:nil
-                                                                repeats:NO];
+        [self touchAtPoint:m_checkPoint];
     }
     else
     {
@@ -289,10 +297,21 @@ enum State
                                                                 repeats:NO];
     }
 }
+- (void)touchAtPoint:(CGPoint)point
+{
+    m_currentPoint = point;
+    sendclickevent(m_currentPoint, UITouchPhaseBegan);
+    [self.scriptDelayTimer invalidate];
+    self.scriptDelayTimer = [NSTimer scheduledTimerWithTimeInterval:0.5
+                                                             target:self
+                                                           selector:@selector(touchUp)
+                                                           userInfo:nil
+                                                            repeats:NO];
+}
 
 - (void)touchUp
 {
-    sendclickevent(m_checkPoint, UITouchPhaseEnded);
+    sendclickevent(m_currentPoint, UITouchPhaseEnded);
     
     [self.scriptDelayTimer invalidate];
     self.scriptDelayTimer = [NSTimer scheduledTimerWithTimeInterval:3.0
